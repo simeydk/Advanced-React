@@ -57,3 +57,39 @@ Other things placed in `<Container>` will render on every page.
 
 
 # Styled Components
+
+## styled
+Styled object provides the ability to create modified versions of HTML tags with styles pre-applied, where styles are specified via a CSS string. Example:
+
+```javascript
+import styled from 'styled-components'
+
+const MyButton = styled.button`
+    color: red;
+`
+const SomeOtherComponent = () => <div><MyButton>Click me</MyButton></div>
+
+```
+
+### Custom Props
+Styled components can also take custom props, which can be used in their CSS., Example:
+```javascript
+const MyButton = styled.button`
+    color: red;
+    font-size: ${props => props.huge ? 200% : 100%};
+`
+const SomeOtherComponent = () => <div>
+    <MyButton>Click me</MyButton>
+    <MyButton huge>Big Clicks</MyButton>
+</div>
+
+```
+
+## Theme
+You can wrap your entire app (or parts of it) in a `ThemeProvider` object, which you import as a child of `styled-components`.
+You pass this a `theme` prop, which is just a regular javascript object with CSS variable values, and then you can access those value anywhere in styled components inside that via the follwnig pattern:
+```javascript
+    const MyWrapper = styled.div`
+    background: ${props => props.theme.bg}
+    `
+```
