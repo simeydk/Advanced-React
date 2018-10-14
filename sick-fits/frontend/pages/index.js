@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-export default() => (
+
+const Home = () => (
     <div>
         <h1>Hello</h1>
-        <Link href="/sell">
-            <a>sell</a>
-        </Link>
     </div>
 )
+
+export default Home
