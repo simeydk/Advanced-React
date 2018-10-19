@@ -93,3 +93,18 @@ You pass this a `theme` prop, which is just a regular javascript object with CSS
     background: ${props => props.theme.bg}
     `
 ```
+
+##InjectGlobal
+Import `injectGlobal` from within `styled-components` and then call that with page-wide CSS that you want, e.g.
+
+```javascript
+import {injectGlobal} from 'styled-components'
+
+injectGlobal`
+    * {
+        margin: 0;
+        padding: 0;
+    }
+`
+
+```
