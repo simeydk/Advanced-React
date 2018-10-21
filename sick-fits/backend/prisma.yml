@@ -1,2 +1,7 @@
-endpoint: https://eu1.prisma.sh/simey-de-klerk/sim-prisma-01/dev
+endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
+# secret: ${env:PRISMA_SECRET}
+hooks:
+  post-deploy:
+      - graphql get-schema -p prisma
+    
